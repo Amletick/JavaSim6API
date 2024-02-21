@@ -3,9 +3,12 @@ public class МагазинТехники {
     public static void main(String[] args) {
         // Создаем множество ноутбуков
         Set<Ноутбук> ноутбуки = new HashSet<>();
-        ноутбуки.add(new Ноутбук("Dell XPS", 16, 512, "Windows 10", "Серый"));
-        ноутбуки.add(new Ноутбук("MacBook Pro", 32, 256, "macOS", "Серебристый"));
-        ноутбуки.add(new Ноутбук("Lenovo ThinkPad", 8, 1, "Windows 10", "Черный"));
+        //Цвета на русском прописать не получилось, почему-то сравнение String'ов на русской раскладке работать отказывается, на этапе сравнение е(eng) и e(ru) 
+        //всегда считает их разными буквами вне зависимости от того в какой раскладке вводится е в терминале, с цветами на английском всё работает
+        //equalsIgnoreCase() должен с этим справляться но почему-то не спасает(возможно у меня разные кодировки в терминале и в VSCode, поэтому и не проходит сравнение)
+        ноутбуки.add(new Ноутбук("Dell XPS", 16, 512, "Windows 10", "Gray"));
+        ноутбуки.add(new Ноутбук("MacBook Pro", 32, 256, "macOS", "Silver"));
+        ноутбуки.add(new Ноутбук("Lenovo ThinkPad", 8, 1, "Windows 10", "Black"));
 
         // Запрашиваем у пользователя критерии фильтрации
         Map<String, Object> фильтр = new HashMap<>();
@@ -38,7 +41,7 @@ public class МагазинТехники {
                 break;
             case 4:
                 System.out.println("Введите цвет:");
-                String цвет = scanner.nextLine().trim();
+                String цвет = scanner.nextLine();
                 фильтр.put("цвет", цвет);
                 break;
             default:
@@ -90,7 +93,7 @@ public class МагазинТехники {
                     }
                     break;
                 case "цвет":
-                    if (!ноутбук.getЦвет().trim().equalsIgnoreCase(((String) значение).trim())) {
+                    if (!ноутбук.getЦвет().equalsIgnoreCase((String) значение)) {
                         return false;
                     }
                     break;
