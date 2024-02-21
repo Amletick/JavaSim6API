@@ -9,7 +9,11 @@ public class МагазинТехники {
         ноутбуки.add(new Ноутбук("Dell XPS", 16, 512, "Windows 10", "Gray"));
         ноутбуки.add(new Ноутбук("MacBook Pro", 32, 256, "macOS", "Silver"));
         ноутбуки.add(new Ноутбук("Lenovo ThinkPad", 8, 1, "Windows 10", "Black"));
-
+        ноутбуки.add(new Ноутбук("HP Pavilion", 8, 256, "Windows 10", "Silver"));
+        ноутбуки.add(new Ноутбук("Asus ZenBook", 16, 512, "Windows 11", "Blue"));
+        ноутбуки.add(new Ноутбук("Acer Predator", 32, 1, "Windows 10", "Black"));
+        ноутбуки.add(new Ноутбук("MSI GS66", 16, 1, "Windows 10", "Black"));
+        ноутбуки.add(new Ноутбук("Lenovo Yoga", 12, 256, "Windows 10", "Gray"));
         // Запрашиваем у пользователя критерии фильтрации
         Map<String, Object> фильтр = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
